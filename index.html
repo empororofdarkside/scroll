@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: cursive;
+            min-height: 1500px;
+            background-color: #0a2a43;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1000;
+            background: linear-gradient(to top, #0a2a43, transparent);
+
+        }
+
+        section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1000;
+            mix-blend-mode: color;
+        }
+
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #text {
+            position: relative;
+            color: #ffffff;
+            font-size: 10em;
+            z-index: 1;
+        }
+
+        #bus {
+            z-index: 2;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <section>
+        <img src="stars.jpg" id="stars" alt="">
+        <img src="moon.png" id="moon" alt="">
+        <img src="mountains.png" id="mountains" alt="">
+        <img src="bus.png" id="bus" alt="">
+        <h2 id="text"> Moon Light</h2>
+    </section>
+    <script>
+        var bg = document.getElementById('stars')
+        var moon = document.getElementById('moon')
+        var mountains = document.getElementById('mountains')
+        var bus = document.getElementById('bus')
+        var text = document.getElementById('text')
+
+        addEventListener('scroll', animate)
+
+        function animate() {
+            var value = window.scrollY;
+            bg.style.top = value * 0.5 + 'px';
+            mountains.style.top = -value * 0.15 + 'px';
+            moon.style.left = -value * 0.50 + 'px';
+            bus.style.top = value * 0.15 + 'px';
+            text.style.top= value * 1 + 'px';
+        }
+    </script>
+</body>
+
+</html>
